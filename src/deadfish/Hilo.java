@@ -55,7 +55,8 @@ public class Hilo implements Runnable {
                                 for (String proceso : procesos) {
                                     comando += proceso + " ";
                                 }
-                                Runtime.getRuntime().exec(comando);
+                                String[] cmd = {"/bin/bash", "-c", "echo sica2014| sudo " + comando};
+                                Runtime.getRuntime().exec(cmd);
                                 Thread.sleep(1000);
                                 Runtime.getRuntime().exec(Constantes.INICIAR_GLASSFISH);
                             }
@@ -67,7 +68,6 @@ public class Hilo implements Runnable {
             } catch (Exception ex) {
                 Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
 
         }
     }
